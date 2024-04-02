@@ -2,6 +2,7 @@ import typing
 import numpy as np
 
 from FinRockState import State
+from FinRockObservations import Observations
 from FinRockDataFeeder import PdDataFeeder
 from FinRockObservations import simpleReward
 

@@ -1,9 +1,9 @@
 {
     "data_feeder": "PdDataFeeder",
     "output_transformer": "ZScoreScaler",
-    "initial_balance": 1000.0,
+    "initial_balance": 200.0,
     "max_episode_steps": 1000,
-    "window_size": 5,
+    "window_size": 1,
     "reward_function": "AccountValueChangeReward",
     "metrics": [
         "DifferentActions",
@@ -11,7 +11,7 @@
     ],
     "order_fee_percent": 0.001,
     "observation_space_shape": [
-        4,
+        0,
         13
     ],
     "action_space": "CONTINUOUS"

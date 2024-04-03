@@ -2,7 +2,7 @@
     "data_feeder": "PdDataFeeder",
     "output_transformer": "ZScoreScaler",
     "initial_balance": 1000.0,
-    "max_episode_steps": 1000,
+    "max_episode_steps": 288,
     "window_size": 5,
     "reward_function": "SimpleReward",
     "metrics": [
@@ -11,7 +11,7 @@
     "order_fee_percent": 0.001,
     "observation_space_shape": [
         4,
-        10
+        8
     ],
     "action_space": "DISCRETE"
 }

@@ -1,7 +1,7 @@
 import numpy as np
 np.seterr(all="ignore")
 import warnings
-from FinRockObservations import Observations
+from FinRockState import Observations
 
 
 class Scaler:

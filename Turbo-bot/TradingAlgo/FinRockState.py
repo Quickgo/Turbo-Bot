@@ -1,4 +1,5 @@
 import typing
+import numpy as np
 from datetime import datetime
 
 class State:
@@ -9,7 +10,8 @@ class State:
             high: float, 
             low: float, 
             close: float, 
-            volume: float=0.0
+            volume: float=0.0,
+            indicators: list=[]
         ):
         self.timestamp = timestamp
         self.open = open
@@ -17,6 +19,7 @@ class State:
         self.low = low
         self.close = close
         self.volume = volume
+        self.indicators = indicators
 
         try:
             self.date = datetime.strptime(timestamp, '%Y-%m-%d %H:%M:%S')
@@ -100,8 +103,33 @@ class Observations:
         self._observations = []
     
     def append(self, state: State) -> None:
-        assert isinstance(state, State) == True, "state must be a State object"
+        # state should be State object or None
+        assert isinstance(state, State) or state is None, "state must be a State object or None"
         self._observations.append(state)
 
         if len(self._observations) > self._window_size:
             self._observations.pop(0)
+
+    @property
+    def close(self) -> np.ndarray:
+        return np.array([state.close for state in self._observations])
+    
+    @property
+    def high(self) -> np.ndarray:
+        return np.array([state.high for state in self._observations])
+    
+    @property
+    def low(self) -> np.ndarray:
+        return np.array([state.low for state in self._observations])
+    
+    @property
+    def open(self) -> np.ndarray:
+        return np.array([state.open for state in self._observations])
+    
+    @property
+    def allocation_percentage(self) -> np.ndarray:
+        return np.array([state.allocation_percentage for state in self._observations])
+
+    @property
+    def volume(self) -> np.ndarray:
+        return np.array([state.volume for state in self._observations])

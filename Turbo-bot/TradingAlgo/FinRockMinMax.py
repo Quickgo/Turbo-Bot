@@ -1,6 +1,6 @@
 import numpy as np
 from FinRockState import State
-from FinRockObservations import Observations
+from FinRockState import Observations
 
 class MinMaxScaler:
     def __init__(self, min: float, max: float):
